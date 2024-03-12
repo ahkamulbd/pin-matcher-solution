@@ -21,4 +21,24 @@ document.getElementById('calculator').addEventListener('click', function (event)
         const newTypedNumber = previousTypedNumber + number;
         typedNumberField.value = newTypedNumber;
     }
+});
+
+document.getElementById('verify-pin').addEventListener('click', function () {
+    const displayPinField = document.getElementById('generate-pin-field');
+    const currentPin = displayPinField.value;
+
+    const typedNumberField = document.getElementById('typed-number');
+    const typedNumber = typedNumberField.value;
+
+    const pinSuccessMessage = document.getElementById('pin-success');
+    const pinFailureMessage = document.getElementById('pin-failure');
+
+    if (currentPin === typedNumber) {
+        pinSuccessMessage.style.display = 'block';
+        pinFailureMessage.style.display = 'none';
+    }
+    else {
+        pinFailureMessage.style.display = 'block';
+        pinSuccessMessage.style.display = 'none';
+    }
 })
